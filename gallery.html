@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Галерея</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="wrapper">
+    <header>
+      <h1>Галерея</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="dictionary.html">Словарь</a></li>
+          <li><a href="gallery.html" class="active">Галерея</a></li>
+          <li><a href="test.html">Тест</a></li>
+          <li><a href="profile.html">Личный кабинет</a></li>
+        </ul>
+      </nav>
+      <div id="username"></div>
+    </header>
+
+    <main>
+      <h2>Фотографии обезьянок</h2>
+
+      <div class="slider">
+        <button class="prev" id="prev-btn">&#8249;</button>
+        <div class="slides">
+            <div class="slide active">
+                <img src="img/1.jpg" alt="Обезьянка 1">
+                <p class="caption">Обезьянка смотрит</p>
+              </div>
+              <div class="slide">
+                <img src="img/2.jpg" alt="Обезьянка 2">
+                <p class="caption">Серьезная обезьянка</p>
+              </div>
+              <div class="slide">
+                <img src="img/3.jpg" alt="Обезьянка 3">
+                <p class="caption">Обезьянка мили</p>
+              </div>
+              <div class="slide">
+                <img src="img/4.jpg" alt="Обезьянка 4">
+                <p class="caption">Обезьяна грустная</p>
+              </div>
+              <div class="slide">
+                <img src="img/5.jpg" alt="Обезьянка 5">
+                <p class="caption">Белая обезьянка</p>
+              </div>
+            </div>
+        <button class="next" id="next-btn">&#8250;</button>
+      </div>
+
+      <div class="slider-info">
+        <p id="slide-info">1 слайд из 5</p>
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; 2024. Все права защищены.</p>
+    </footer>
+  </div>
+
+  <script src="js/slider.js"></script>
+</body>
+</html>

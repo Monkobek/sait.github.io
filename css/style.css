@@ -7,9 +7,13 @@
   
   body {
     font-family: Arial, sans-serif;
-    line-height: 1.6;
-    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+    /* Масштабируем фон */
     color: #333;
+    min-height: 100vh; /* Минимальная высота на случай пустых страниц */
+    background: url('https://www.the-sun.com/wp-content/uploads/sites/6/2021/06/NINTCHDBPICT000294201507.jpg') no-repeat center top; 
+    background-size: cover; 
   }
   
   /* Стили header */
@@ -26,7 +30,11 @@
     list-style: none;
     display: flex;
   }
-  
+  header nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+  }
   header nav ul li {
     margin: 0 10px;
   }
@@ -52,7 +60,13 @@
   
   /* Стили main */
   main {
+    flex: 1; /* Растягиваем основной блок, чтобы он занимал всё доступное пространство */
+    background: rgba(255, 255, 255, 0.8); /* Полупрозрачный белый фон */
+    margin: 20px auto;
     padding: 20px;
+    max-width: 800px;
+    border-radius: 10px; /* Скруглённые углы */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Тень для объёма */
   }
   
   h1 {
@@ -138,3 +152,123 @@
     text-decoration: underline;
   }
   
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Высота страницы равна высоте экрана */}
+    .slider {
+      position: relative;
+      max-width: 600px;
+      margin: 20px auto;
+      overflow: hidden;
+      border: 2px solid #ccc;
+      border-radius: 8px;
+    }
+    
+    .slides {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+    
+    .slide {
+      min-width: 100%;
+      display: none;
+      object-fit: cover;
+    }
+    
+    .slide.active {
+      display: block;
+    }
+    
+    button.prev, button.next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.5);
+      color: #fff;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      z-index: 10;
+    }
+    
+    button.prev {
+      left: 10px;
+    }
+    
+    button.next {
+      right: 10px;
+    }
+    
+    .slider-info {
+      text-align: center;
+      margin-top: 10px;
+      font-size: 1.2em;
+    }
+    .slide {
+      position: relative;
+      display: none;
+    }
+    
+    .slide.active {
+      display: block;
+    }
+    
+    .slide img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+    
+    .caption {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0, 0, 0, 0.7);
+      color: #fff;
+      padding: 5px 10px;
+      border-radius: 4px;
+      font-size: 1em;
+      text-align: center;
+    }
+    .auth-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 10px;
+    }
+    
+    .auth-info #logout-btn {
+      background-color: #ff4d4d;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    
+    .auth-info #logout-btn:hover {
+      background-color: #e60000;
+    }
+    
+    main p {
+      font-size: 1.2em;
+      margin-bottom: 10px;
+    }
+    
+    #logout-btn-main {
+      background-color: #ff4d4d;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    
+    #logout-btn-main:hover {
+      background-color: #e60000;
+    }
+        
+    

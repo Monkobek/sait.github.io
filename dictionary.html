@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Словарь</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="wrapper">
+    <header>
+      <h1>Словарь</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="dictionary.html" class="active">Словарь</a></li>
+          <li><a href="gallery.html">Галерея</a></li>
+          <li><a href="test.html">Тест</a></li>
+          <li><a href="profile.html">Личный кабинет</a></li>
+        </ul>
+      </nav>
+      <div id="username"></div>
+    
+    </header>
+
+    <main>
+      <h2>Поиск по словарю</h2>
+      <input type="text" id="search" placeholder="Введите слово для поиска">
+      
+      <ul id="dictionary-list">
+        <li data-term="Обезьяна">Обезьяна</li>
+        <li data-term="Приматы">Приматы</li>
+        <li data-term="Горилла">Горилла</li>
+        <li data-term="Шимпанзе">Шимпанзе</li>
+        <li data-term="Орангутан">Орангутан</li>
+        <li data-term="Эволюция">Эволюция</li>
+        <li data-term="Древесный образ жизни">Древесный образ жизни</li>
+        <li data-term="Биология">Биология</li>
+        <li data-term="Социальное поведение">Социальное поведение</li>
+        <li data-term="Среда обитания">Среда обитания</li>
+      </ul>
+
+      <div id="definition">
+        <h3>Описание</h3>
+        <p id="definition-text">Выберите слово из списка, чтобы увидеть его описание.</p>
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; 2024. Все права защищены.</p>
+    </footer>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Авторизация</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="login">
+  <div class="wrapper">
+    <header>
+      <h1>Авторизация</h1>
+    </header>
+
+    <main>
+      <form id="auth-form">
+        <h2>Вход на сайт</h2>
+        
+        <label for="login">Логин</label>
+        <input type="text" id="login" name="login" placeholder="Введите логин" required 
+               pattern="[а-яА-Яa-zA-Z0-9]{4,10}" title="От 4 до 10 символов, только буквы и цифры (русские или английские)">
+        
+        <label for="dob">Дата рождения</label>
+        <input type="date" id="dob" name="dob" required 
+               min="1950-01-01" max="2024-12-31">
+        
+        <label for="gender">Пол</label>
+        <select id="gender" name="gender" required>
+          <option value="">Выберите пол</option>
+          <option value="male">Мужской</option>
+          <option value="female">Женский</option>
+        </select>
+
+        <button type="submit">Войти</button>
+      </form>
+    </main>
+
+    <footer>
+      <p>&copy; 2024. Все права защищены.</p>
+    </footer>
+  </div>
+
+  <!-- Подключение скрипта входа -->
+  <script src="js/login.js"></script>
+</body>
+</html>
