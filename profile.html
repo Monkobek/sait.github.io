@@ -6,35 +6,26 @@
   <title>Личный кабинет</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body data-page="profile">
+<body>
   <div class="wrapper">
     <header>
       <h1>Личный кабинет</h1>
       <nav>
-        <ul>
-          <li><a href="index.html">Главная</a></li>
-          <li><a href="dictionary.html">Словарь</a></li>
-          <li><a href="gallery.html">Галерея</a></li>
-          <li><a href="test.html">Тест</a></li>
-          <li><a href="profile.html" class="active">Личный кабинет</a></li>
-        </ul>
+        <a href="index.html">Описание</a>
+        <a href="dictionary.html">Словарь</a>
+        <a href="gallery.html">Галерея</a>
+        <a href="test.html">Тест</a>
+        <a href="profile.html" class="active">Личный кабинет</a>
       </nav>
-      <div class="auth-info">
-        <span id="user-login">Логин: неизвестно</span>
-        <button id="logout-btn">Выйти</button>
-      </div>
+      <div id="username"></div> <!-- Здесь будет выводиться логин пользователя -->
     </header>
 
     <main>
-      <h2>Данные пользователя</h2>
-      <p><strong>Логин:</strong> <span id="profile-login">Неизвестно</span></p>
-      <p><strong>Дата рождения:</strong> <span id="profile-dob">Неизвестно</span></p>
-      <p><strong>Пол:</strong> <span id="profile-gender">Неизвестно</span></p>
-
-      <h2>Результат теста</h2>
-      <p id="test-result">Результат: тест ещё не пройден.</p>
-
-      <button id="logout-btn-main">Выйти</button>
+      <h2>Добро пожаловать в личный кабинет</h2>
+      <div id="profile-info">
+        <!-- Здесь будут отображаться данные пользователя -->
+      </div>
+      <button id="logout-btn">Выйти</button> <!-- Кнопка выхода -->
     </main>
 
     <footer>
@@ -42,6 +33,6 @@
     </footer>
   </div>
 
-  <script src="js/script.js"></script>
+  <script src="js/script.js"></script> <!-- Подключаем внешний JS -->
 </body>
 </html>

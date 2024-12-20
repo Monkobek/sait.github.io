@@ -1,122 +1,77 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const currentPage = document.body.getAttribute('data-page');
+// Проверка наличия данных пользователя в localStorage
+const userData = JSON.parse(localStorage.getItem('userData'));
 
-  // Проверка авторизации
-  const checkAuth = () => {
-    const userData = JSON.parse(localStorage.getItem('userData'));
-    if (!userData && currentPage !== 'login') {
-      window.location.href = 'login.html'; // Если нет данных, перенаправляем на страницу авторизации
-    }
-    return userData;
-  };
+// Функция для перенаправления на страницу авторизации, если данных нет
+function redirectToLogin() {
+  window.location.href = 'login.html'; // Перенаправляем на login.html
+}
 
-  // Страница профиля
-  if (currentPage === 'profile') {
-    const userData = checkAuth();
+// Функция для отображения данных пользователя на странице
+function displayUserData() {
+  const usernameDiv = document.getElementById('username');
+  const usernameElement = document.createElement('p');
+  usernameElement.textContent = `Здравствуйте, ${userData.login}!`;
+  usernameDiv.appendChild(usernameElement);
+}
 
-    // Заполняем данные пользователя
-    if (userData) {
-      document.getElementById('user-login').textContent = `Логин: ${userData.login}`;
-      document.getElementById('profile-login').textContent = userData.login;
-      document.getElementById('profile-dob').textContent = userData.dob;
-      document.getElementById('profile-gender').textContent = userData.gender === 'male' ? 'Мужской' : 'Женский';
-    }
+// Проверка данных
+if (!userData) {
+  redirectToLogin(); // Если данных нет, перенаправляем на страницу авторизации
+} else {
+  displayUserData(); // Если данные есть, показываем логин пользователя
+}
 
-    // Результат теста
-    const lastTestResult = localStorage.getItem('lastTestResult') || 'Тест ещё не пройден.';
-    document.getElementById('test-result').textContent = `Результат: ${lastTestResult}`;
 
-    // Кнопка выхода
-    const logoutButtons = document.querySelectorAll('#logout-btn, #logout-btn-main');
-    logoutButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        localStorage.removeItem('userData');
-        localStorage.removeItem('lastTestResult');
-        window.location.href = 'login.html';
-      });
-    });
+
+
+// Функция для перенаправления на страницу авторизации
+function redirectToLogin() {
+  window.location.href = 'login.html'; // Перенаправляем на страницу login.html
+}
+
+// Функция для отображения данных пользователя
+function displayUserData() {
+  const profileInfoDiv = document.getElementById('profile-info');
+
+  // Удаляем старое содержимое, чтобы избежать дублирования
+  profileInfoDiv.innerHTML = '';
+
+  if (userData) {
+    // Создаем и добавляем элементы с данными пользователя
+    const usernameElement = document.createElement('p');
+    usernameElement.textContent = `Логин: ${userData.login}`;
+
+    const dobElement = document.createElement('p');
+    dobElement.textContent = `Дата рождения: ${userData.dob}`;
+
+    const genderElement = document.createElement('p');
+    genderElement.textContent = `Пол: ${userData.gender}`;
+
+    // Добавляем эти данные в блок
+    profileInfoDiv.appendChild(usernameElement);
+    profileInfoDiv.appendChild(dobElement);
+    profileInfoDiv.appendChild(genderElement);
+  } else {
+    // Если данных нет, перенаправляем на страницу авторизации
+    redirectToLogin();
   }
-});
+}
 
-  
-  // Галерея
-  if (document.querySelector('.slider')) {
-    const images = ['img/slide1.jpg', 'img/slide2.jpg', 'img/slide3.jpg'];
-    let current = 0;
-    const imgTag = document.querySelector('.slider img');
-    const prev = document.getElementById('prev');
-    const next = document.getElementById('next');
-  
-    const updateSlider = () => {
-      imgTag.src = images[current];
-      prev.disabled = current === 0;
-      next.disabled = current === images.length - 1;
-    };
-  
-    prev.addEventListener('click', () => {
-      if (current > 0) current--;
-      updateSlider();
-    });
-  
-    next.addEventListener('click', () => {
-      if (current < images.length - 1) current++;
-      updateSlider();
-    });
-  
-    updateSlider();
-  }
-  
-  // Словарь
-  if (document.querySelector('#dictionary')) {
-    const terms = {
-      "Слово1": "Описание 1",
-      "Слово2": "Описание 2",
-      "Слово3": "Описание 3"
-    };
-  
-    const dictionary = document.getElementById('dictionary');
-    const description = document.getElementById('word-description');
-  
-    for (const [word, desc] of Object.entries(terms)) {
-      const li = document.createElement('li');
-      li.textContent = word;
-      li.addEventListener('click', () => {
-        description.textContent = desc;
-      });
-      dictionary.appendChild(li);
-    }
-  }
-  // Обработка работы словаря
-const dictionary = {
-  "Обезьяна": "Обезьяна — представитель приматов, обитающий в разных климатических зонах мира.",
-  "Приматы": "Приматы — отряд млекопитающих, к которому относятся обезьяны, лемуры и человек.",
-  "Горилла": "Горилла — крупнейшая из современных обезьян, живущая в тропических лесах Африки.",
-  "Шимпанзе": "Шимпанзе — один из ближайших родственников человека, известен своим высоким интеллектом.",
-  "Орангутан": "Орангутан — крупная древесная обезьяна, встречающаяся в тропических лесах Борнео и Суматры.",
-  "Эволюция": "Эволюция — процесс изменения видов со временем под влиянием окружающей среды и других факторов.",
-  "Древесный образ жизни": "Древесный образ жизни — стиль жизни, связанный с обитанием и передвижением по деревьям.",
-  "Биология": "Биология — наука о живых организмах, включая их структуру, функции, рост и эволюцию.",
-  "Социальное поведение": "Социальное поведение — формы взаимодействия между членами группы, включая сотрудничество и конкуренцию.",
-  "Среда обитания": "Среда обитания — место, где организм живет и развивается, включая все окружающие условия."
-};
+// Функция для обработки выхода
+function logout() {
+  // Удаляем данные пользователя из localStorage
+  localStorage.removeItem('userData');
+  // Перенаправляем на страницу логина
+  redirectToLogin();
+}
 
-const searchInput = document.getElementById('search');
-const dictionaryList = document.getElementById('dictionary-list');
-const definitionText = document.getElementById('definition-text');
+// Проверяем, если данные пользователя есть, то показываем их
+if (userData) {
+  displayUserData();
+} else {
+  redirectToLogin(); // Если данных нет, перенаправляем на страницу авторизации
+}
 
-// Фильтрация списка слов при вводе в поле поиска
-searchInput.addEventListener('input', () => {
-  const query = searchInput.value.toLowerCase();
-  Array.from(dictionaryList.children).forEach(item => {
-    const term = item.textContent.toLowerCase();
-    item.style.display = term.includes(query) ? '' : 'none';
-  });
-});
-
-// Отображение описания при выборе слова
-dictionaryList.addEventListener('click', (event) => {
-  const term = event.target.dataset.term;
-  if (term && dictionary[term]) {
-    definitionText.textContent = dictionary[term];
-  }
-});
+// Обработчик события на кнопку "Выйти"
+const logoutButton = document.getElementById('logout-btn');
+logoutButton.addEventListener('click', logout);
