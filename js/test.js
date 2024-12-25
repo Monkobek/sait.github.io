@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const resultDiv = document.getElementById('result');
   const scoreText = document.getElementById('score');
   const retryBtn = document.getElementById('retry-btn');
+  const checkBtn = form.querySelector('button[type="submit"]'); // Кнопка "Проверить ответы"
   const errorMessages = document.querySelectorAll('.error');
 
   // Перезапуск теста
@@ -10,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     form.reset();
     resultDiv.style.display = 'none';
     errorMessages.forEach(el => el.textContent = '');
+    checkBtn.disabled = false;  // Включаем кнопку "Проверить" после сброса
   });
 
   // Обработка формы
@@ -17,8 +19,10 @@ document.addEventListener('DOMContentLoaded', () => {
     e.preventDefault();
 
     let score = 0;
-    let totalQuestions = 6;
     let valid = true;
+
+    // Деактивируем кнопку "Проверить ответы", чтобы она была неактивна до нажатия на "Пройти заново"
+    checkBtn.disabled = true;
 
     // Сброс ошибок
     errorMessages.forEach(el => el.textContent = '');

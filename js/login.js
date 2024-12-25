@@ -10,9 +10,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Обработка формы авторизации
   authForm.addEventListener('submit', (e) => {
-    e.preventDefault();
+    e.preventDefault(); // Предотвращаем отправку формы
 
-    
+    // Очищаем предыдущие ошибки
     loginError.textContent = '';
     dobError.textContent = '';
     genderError.textContent = '';
@@ -23,9 +23,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let isValid = true;
 
-  
+    // Проверка логина (от 4 до 10 символов, только буквы и цифры)
     if (!/^[а-яА-Я0-9]{4,10}$/.test(login)) {
-      loginError.textContent = 'Логин должен содержать от 4 до 10 символов, только русские буквы и цифры .';
+      loginError.textContent = 'Логин должен содержать от 4 до 10 символов, только русские буквы и цифры.';
       isValid = false;
     }
 
@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (isValid) {
       const userData = { login, dob, gender };
       localStorage.setItem('userData', JSON.stringify(userData));
-      window.location.href = 'index.html'; // Перенаправляем на страницу профиля
+      window.location.href = 'profile.html'; // Перенаправляем на страницу профиля
     }
   });
 });
