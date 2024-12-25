@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   authForm.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    // Очищаем предыдущие ошибки
+    
     loginError.textContent = '';
     dobError.textContent = '';
     genderError.textContent = '';
@@ -23,8 +23,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let isValid = true;
 
-    // Проверка логина (от 4 до 10 символов, только буквы и цифры)
-    if (!/^[а-яА-ЯёЁ]{4,10}$/.test(login)) {
+  
+    if (!/^[а-яА-Я0-9]{4,10}$/.test(login)) {
       loginError.textContent = 'Логин должен содержать от 4 до 10 символов, только русские буквы и цифры .';
       isValid = false;
     }

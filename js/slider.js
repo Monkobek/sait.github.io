@@ -5,8 +5,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const nextBtn = document.getElementById('next-btn');
   const slideInfo = document.getElementById('slide-info');
 
+  
+  
   let currentSlide = 0;
-
   function updateSlider() {
     const slideWidth = slides[0].clientWidth;
     slidesContainer.style.transform = `translateX(-${currentSlide * slideWidth}px)`;
@@ -16,11 +17,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // Disable buttons at edges
     prevBtn.disabled = currentSlide === 0;
     nextBtn.disabled = currentSlide === slides.length - 1;
+   
   }
-
+  
   prevBtn.addEventListener('click', () => {
     if (currentSlide > 0) {
       currentSlide--;
+      
       updateSlider();
     }
   });
