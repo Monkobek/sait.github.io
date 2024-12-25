@@ -19,7 +19,10 @@
           <li><a href="profile.html">Личный кабинет</a></li>
         </ul>
       </nav>
-      <div id="username"></div>
+      <div id="user-info">
+        <span id="username"></span>
+        <button id="logout-btn" style="display:none;">Выйти</button>
+      </div>
     
     </header>
 
@@ -47,11 +50,19 @@
     </main>
 
     <footer>
-      <p>&copy; 2024. Все права защищены.</p>
+      <div class="footer-contacts">
+        <h3>Контакты</h3>
+        <ul>
+          <li><strong>Телефон:</strong> +7 (996) 956-43-13</li>
+          <li><strong>Email:</strong> <a href="mailto:monkey@monkey.com">monkey@monkey.com</a></li>
+          <li><strong>Адрес:</strong> г. Москва, ул. Красная Пресня, д. 10</li>
+        </ul>
+      </div>
     </footer>
   </div>
 
   <script src="js/dir.js"></script>
   <script src="js/script.js"></script>
+  <script src="js/username.js"></script>
 </body>
 </html>

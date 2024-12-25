@@ -75,3 +75,7 @@ if (userData) {
 // Обработчик события на кнопку "Выйти"
 const logoutButton = document.getElementById('logout-btn');
 logoutButton.addEventListener('click', logout);
+
+
+
+

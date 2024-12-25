@@ -1,29 +1,105 @@
-const testForm = document.getElementById('test-form');
-const resultsDiv = document.getElementById('results');
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('test-form');
+  const resultDiv = document.getElementById('result');
+  const scoreText = document.getElementById('score');
+  const retryBtn = document.getElementById('retry-btn');
+  const errorMessages = document.querySelectorAll('.error');
 
-testForm?.addEventListener('submit', function (e) {
-  e.preventDefault();
+  // Перезапуск теста
+  retryBtn.addEventListener('click', () => {
+    form.reset();
+    resultDiv.style.display = 'none';
+    errorMessages.forEach(el => el.textContent = '');
+  });
 
-  let score = 0;
-  const answers = {
-    q1: 'Правильный ответ 1',
-    q2: 'Правильный ответ 2',
-    // Добавь ответы для всех вопросов
-  };
+  // Обработка формы
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
 
-  for (const [key, value] of Object.entries(answers)) {
-    const input = testForm[key];
-    const feedback = document.createElement('div');
-    if (input.value.trim().toLowerCase() === value.toLowerCase()) {
+    let score = 0;
+    let totalQuestions = 6;
+    let valid = true;
+
+    // Сброс ошибок
+    errorMessages.forEach(el => el.textContent = '');
+
+    // Вопрос 1
+    const q1Answer = document.getElementById('q1').value.trim().toLowerCase();
+    if (q1Answer === 'горилла') { // Пример правильного ответа
       score++;
-      feedback.textContent = 'Верно!';
-      feedback.style.color = 'green';
+      document.getElementById('q1-error').textContent = 'Ответ правильный';
+      document.getElementById('q1-error').style.color = 'green';
     } else {
-      feedback.textContent = `Неверно, правильный ответ: ${value}`;
-      feedback.style.color = 'red';
+      document.getElementById('q1-error').textContent = 'Ответ неправильный, правильный ответ: горилла';
+      document.getElementById('q1-error').style.color = 'red';
+      valid = false;
     }
-    input.parentElement.appendChild(feedback);
-  }
 
-  resultsDiv.textContent = `Ваш результат: ${score} из ${Object.keys(answers).length}`;
+    // Вопрос 2
+    const q2Answer = document.getElementById('q2').value;
+    if (q2Answer === 'уакари') {
+      score++;
+      document.getElementById('q2-error').textContent = 'Ответ правильный';
+      document.getElementById('q2-error').style.color = 'green';
+    } else {
+      document.getElementById('q2-error').textContent = 'Ответ неправильный, правильный ответ: уакари';
+      document.getElementById('q2-error').style.color = 'red';
+      valid = false;
+    }
+
+    // Вопрос 3
+    const q3Answer = document.getElementById('q3').value.trim().toLowerCase();
+    if (q3Answer === 'белорукий гиббон') { // Пример правильного ответа
+      score++;
+      document.getElementById('q3-error').textContent = 'Ответ правильный';
+      document.getElementById('q3-error').style.color = 'green';
+    } else {
+      document.getElementById('q3-error').textContent = 'Ответ неправильный, правильный ответ: белорукий гиббон';
+      document.getElementById('q3-error').style.color = 'red';
+      valid = false;
+    }
+
+    // Вопрос 4
+    const q4Answer = document.getElementById('q4').value;
+    if (q4Answer === 'Африка') {
+      score++;
+      document.getElementById('q4-error').textContent = 'Ответ правильный';
+      document.getElementById('q4-error').style.color = 'green';
+    } else {
+      document.getElementById('q4-error').textContent = 'Ответ неправильный, правильный ответ: африка';
+      document.getElementById('q4-error').style.color = 'red';
+      valid = false;
+    }
+
+    // Вопрос 5
+    const q5Answer = document.getElementById('q5').value.trim().toLowerCase();
+    if (q5Answer === 'капуцин') {
+      score++;
+      document.getElementById('q5-error').textContent = 'Ответ правильный';
+      document.getElementById('q5-error').style.color = 'green';
+    } else {
+      document.getElementById('q5-error').textContent = 'Ответ неправильный, правильный ответ: капуцин';
+      document.getElementById('q5-error').style.color = 'red';
+      valid = false;
+    }
+
+    // Вопрос 6
+    const q6Answer = document.getElementById('q6').value;
+    if (q6Answer === 'пауковые обезьяны') {
+      score++;
+      document.getElementById('q6-error').textContent = 'Ответ правильный';
+      document.getElementById('q6-error').style.color = 'green';
+    } else {
+      document.getElementById('q6-error').textContent = 'Ответ неправильный, правильный ответ: пауковые обезьяны';
+      document.getElementById('q6-error').style.color = 'red';
+      valid = false;
+    }
+
+    // Отображение результатов
+    scoreText.textContent = `Вы набрали: ${score} баллов из 6`;
+    resultDiv.style.display = 'block';
+
+    // Сохранение результата в localStorage (если нужно)
+    localStorage.setItem('testResult', score);
+  });
 });

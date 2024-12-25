@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Тест на знание о обезьянах</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="wrapper">
+    <header>
+      <h1>Тест на знание о обезьянах</h1>
+      <nav>
+        <a href="index.html" class="active">Описание</a>
+        <a href="dictionary.html">Словарь</a>
+        <a href="gallery.html">Галерея</a>
+        <a href="test.html">Тест</a>
+        <a href="profile.html">Личный кабинет</a>
+      </nav>
+      <div id="user-info">
+        <span id="username"></span>
+        <button id="logout-btn" style="display:none;">Выйти</button>
+      </div>
+    </header>
+
+    <main>
+      <form id="test-form">
+        <h2>Ответьте на вопросы:</h2>
+
+        <!-- Вопрос 1 -->
+        <div class="question">
+          <label for="q1">Какая самая крупная обезьяна в мире?</label>
+          <input type="text" id="q1" name="q1" placeholder="Введите ответ">
+          <div class="error" id="q1-error"></div>
+        </div>
+
+        <!-- Вопрос 2 -->
+        <div class="question">
+          <label for="q2">Какой вид обезьяны известен своим красным лицом?</label>
+          <select id="q2" name="q2">
+            <option value="">Выберите ответ</option>
+            <option value="горилла">Горилла</option>
+            <option value="мавпа">Мавпа</option>
+            <option value="уакари">уакари</option>
+          </select>
+          <div class="error" id="q2-error"></div>
+        </div>
+
+        <!-- Вопрос 3 -->
+        <div class="question">
+          <label for="q3">Как называют обезьяну с белой шерстью и черным лицом?</label>
+          <input type="text" id="q3" name="q3" placeholder="Введите ответ">
+          <div class="error" id="q3-error"></div>
+        </div>
+
+        <!-- Вопрос 4 -->
+        <div class="question">
+          <label for="q4">Какое место обитания у шимпанзе?</label>
+          <select id="q4" name="q4">
+            <option value="">Выберите ответ</option>
+            <option value="Африка">Африка</option>
+            <option value="Южная Америка">Южная Америка</option>
+            <option value="Азия">Азия</option>
+          </select>
+          <div class="error" id="q4-error"></div>
+        </div>
+
+        <!-- Вопрос 5 -->
+        <div class="question">
+          <label for="q5">Какая обезьяна может использовать камни для разрушения орехов?</label>
+          <input type="text" id="q5" name="q5" placeholder="Введите ответ">
+          <div class="error" id="q5-error"></div>
+        </div>
+
+        <!-- Вопрос 6 -->
+        <div class="question">
+          <label for="q6">Как называется группа обезьян, которая обитает в Южной Америке?</label>
+          <select id="q6" name="q6">
+            <option value="">Выберите ответ</option>
+            <option value="пауковые обезьяны">Пауковые обезьяны</option>
+            <option value="гориллы">Гориллы</option>
+            <option value="обезьяны-капуцины">Обезьяны-капуцины</option>
+          </select>
+          <div class="error" id="q6-error"></div>
+        </div>
+
+        <!-- Кнопка проверки -->
+        <button type="submit">Проверить ответы</button>
+      </form>
+
+      <!-- Результаты -->
+      <div id="result" style="display: none;">
+        <h3>Результат теста:</h3>
+        <p id="score">Вы набрали: 0 баллов из 6</p>
+        <button id="retry-btn">Пройти тест заново</button>
+      </div>
+    </main>
+
+    <footer>
+        <div class="footer-contacts">
+            <h3>Контакты</h3>
+            <ul>
+              <li><strong>Телефон:</strong> +7 (996) 956-43-13</li>
+              <li><strong>Email:</strong> <a href="mailto:monkey@monkey.com">monkey@monkey.com</a></li>
+              <li><strong>Адрес:</strong> г. Москва, ул. Красная Пресня, д. 10</li>
+            </ul>
+          </div>
+    </footer>
+  </div>
+
+  <script src="js/test.js"></script>
+  <script src="js/username.js"></script>
+ 
+</body>
+</html>

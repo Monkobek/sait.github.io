@@ -13,30 +13,42 @@
     </header>
 
     <main>
-      <form id="auth-form">
+      <form id="auth-form" novalidate> <!-- Убрали стандартную валидацию с помощью атрибута novalidate -->
         <h2>Вход на сайт</h2>
         
-        <label for="login">Логин</label>
-        <input type="text" id="login" name="login" placeholder="Введите логин" required 
-               pattern="[а-яА-Яa-zA-Z0-9]{4,10}" title="От 4 до 10 символов, только буквы и цифры (русские или английские)">
+        <div class="form-group">
+          <label for="login">Логин</label>
+          <input type="text" id="login" name="login" placeholder="Введите логин" required>
+          <p class="error-message" id="login-error"></p> <!-- Сообщение об ошибке для логина -->
+        </div>
+
+        <div class="form-group">
+          <label for="dob">Дата рождения</label>
+          <input type="date" id="dob" name="dob" required>
+          <p class="error-message" id="dob-error"></p> <!-- Сообщение об ошибке для даты рождения -->
+        </div>
         
-        <label for="dob">Дата рождения</label>
-        <input type="date" id="dob" name="dob" required 
-               min="1950-01-01" max="2024-12-31">
-        
-        <label for="gender">Пол</label>
-        <select id="gender" name="gender" required>
-          <option value="">Выберите пол</option>
-          <option value="male">Мужской</option>
-          <option value="female">Женский</option>
-        </select>
+        <div class="form-group">
+          <label for="gender">Пол</label>
+          <select id="gender" name="gender" required>
+            <option value="">Выберите пол</option>
+            <option value="Мужской">Мужской</option>
+            <option value="Женский">Женский</option>
+          </select>
+          <p class="error-message" id="gender-error"></p> <!-- Сообщение об ошибке для выбора пола -->
+        </div>
 
         <button type="submit">Войти</button>
       </form>
     </main>
 
     <footer>
-      <p>&copy; 2024. Все права защищены.</p>
+      <p>
+        Контакты:
+        <br>Телефон: +7 (996) 956-43-13
+        <br>Email: <a href="mailto:monkey@monkey.com">monkey@monkey.com</a>
+        <br>Адрес: г. Москва, ул. Красная Пресня, д. 10
+      </p>
     </footer>
   </div>
 
