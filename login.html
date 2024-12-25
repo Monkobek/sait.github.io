@@ -6,45 +6,52 @@
   <title>Авторизация</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body data-page="login">
+<body>
   <div class="wrapper">
     <header>
       <h1>Авторизация</h1>
     </header>
 
     <main>
-      <form id="auth-form" novalidate> 
+      <form id="auth-form" action="index.html" method="POST" novalidate>
         <h2>Вход на сайт</h2>
+        
+        <div class="form-group">
           <label for="login">Логин</label>
-          <input type="text" id="login" name="login" placeholder="Введите логин" required
-          pattern="^[а-яА-Я0-9]{4,10}$" title="Логин должен содержать от 4 до 10 символов, только русские буквы и цифры.">
-          <p class="error-message" id="login-error"></p> 
+          <input type="text" id="login" name="login" placeholder="Введите логин" required pattern="^[а-яА-Я0-9]{4,10}$">
+          <p class="error-message" id="login-error"></p>
+        </div>
+      
+        <div class="form-group">
           <label for="dob">Дата рождения</label>
           <input type="date" id="dob" name="dob" required>
-          <p class="error-message" id="dob-error"></p> 
+          <p class="error-message" id="dob-error"></p>
+        </div>
+        
+        <div class="form-group">
           <label for="gender">Пол</label>
           <select id="gender" name="gender" required>
             <option value="">Выберите пол</option>
             <option value="Мужской">Мужской</option>
             <option value="Женский">Женский</option>
           </select>
-          <p class="error-message" id="gender-error"></p> 
+          <p class="error-message" id="gender-error"></p>
+        </div>
       
         <button type="submit">Войти</button>
       </form>
+      
     </main>
 
     <footer>
-      <p>
-        Контакты:
-        <br>Телефон: +7 (996) 956-43-13
-        <br>Email: <a href="mailto:monkey@monkey.com">monkey@monkey.com</a>
-        <br>Адрес: г. Москва, ул. Красная Пресня, д. 10
-      </p>
+      <p>Контакты: Телефон: +7 (996) 956-43-13</p>
     </footer>
   </div>
 
-  <!-- Подключение скрипта входа -->
   <script src="js/login.js"></script>
+  <script src="js/script.js"></script>
+  
+
+
 </body>
 </html>
